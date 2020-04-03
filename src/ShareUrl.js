@@ -26,7 +26,7 @@ class ShareUrl extends Component {
   };
 
 	render(){
-		var shareUrl = 'localhost:3000/';
+		var shareUrl = `https://wfhcreact.herokuapp.com/${this.props.location.state.uniqueCode}`;
 		var title = 'share url';
 	return(
 		     <div>
