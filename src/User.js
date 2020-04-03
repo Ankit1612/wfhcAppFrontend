@@ -22,7 +22,7 @@ class User extends Component {
 	}
 
 	componentDidMount() {
-		var createUrl = "http://localhost:8080/"+this.state.uniquecode;
+		var createUrl = "https://wfhcfbackend.herokuapp.com/"+this.state.uniquecode;
     	axios({
       	method: "get",
       	url: createUrl,

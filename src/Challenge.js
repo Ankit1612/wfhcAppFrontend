@@ -46,7 +46,7 @@ class Challenge extends Component {
     	} else {
     		customQuestion = this.state.option;
     	}
-    	var loginUrl = "http://localhost:8080/createChallenge";
+    	var loginUrl = "https://wfhcfbackend.herokuapp.com/createChallenge";
     	var payload = {
       		name: this.props.location.state.name,
       		challenge: customQuestion
