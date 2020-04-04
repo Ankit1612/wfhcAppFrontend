@@ -104,6 +104,13 @@ class Challenge extends Component {
 			a hilarious task and enjoy seeing them doing funny things.Let's have fun while we #StayHome #StaySafe...
 			Lets not break the chain....</i></p>
 			<p>You can eiher pick a dare from list below, or create you own dare to have real fun.....</p>
+			<div className="form-check justify-content-left align-items-left">
+  				<label className="form-check-label">
+    			<input type="radio" className="form-check-input" value="Post a pic of yours with candle/torch/diya #diyachallenge."
+              		checked={this.state.option === "Post a pic of yours with candle/torch/diya #diyachallenge."}
+              		onChange={this.handleChange} />Post a pic of yours with candle/torch/diya #diyachallenge.
+  				</label>
+			 </div> 
 			 <div className="form-check">
   				<label className="form-check-label">
     			<input type="radio" className="form-check-input" value="Mimic any of your colleague/friend and post it on your whatsapp story."
