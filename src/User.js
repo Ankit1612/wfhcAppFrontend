@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { withRouter, Route, Redirect } from "react-router-dom";
-import Accept from './Accept';
+import { withRouter, Redirect } from "react-router-dom";
 
 class User extends Component {
 
@@ -63,7 +62,7 @@ class User extends Component {
 	render(){
 		return(
 			<div>
-				<p> hey, {this.state.user.name} has given you a challenge - {this.state.user.challenge}. Please accept 
+				<p> Hey <b><i>{this.state.user.name}</i></b>, has given you a challenge - <b><i>"{this.state.user.challenge}"</i></b> Please accept 
 					the challenge and display it, at your whatsapp status.</p>
 				<div>
 					<button type="button" class="btn btn-danger btn-sm" onClick={this.onClickHandleDecline}>Decline</button>&nbsp;&nbsp;

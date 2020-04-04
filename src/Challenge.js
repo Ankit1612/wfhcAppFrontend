@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import ShareUrl from "./ShareUrl";
+import styles from './Chalenge.module.css';
 
 class Challenge extends Component {
 
@@ -10,6 +10,7 @@ class Challenge extends Component {
         this.state = {
             option: ' ',
             custom: ' ',
+            errors: ' ',
             isRadioSelected: true
         };
     }
@@ -38,6 +39,21 @@ class Challenge extends Component {
         });
     }
 
+    handleValidation(){
+        let field = this.state.custom;
+        let errors = '';
+        let formIsValid = true;
+
+        //Name
+        if(field === ''){
+           formIsValid = false;
+           errors = "Please enter challenge!";
+        }
+       
+       this.setState({errors: errors});
+       return formIsValid;
+   }
+
    handleSubmit = (e) => {
       	e.preventDefault();
     	var customQuestion;
@@ -48,7 +64,7 @@ class Challenge extends Component {
     	}
     	var loginUrl = "https://wfhcfbackend.herokuapp.com/createChallenge";
     	var payload = {
-      		name: this.props.location.state.name,
+      		name: this.props.location.state.uname,
       		challenge: customQuestion
     	};
 
@@ -63,8 +79,6 @@ class Challenge extends Component {
       	}
     	}).then(
       	function(response) {
-      		console.log(payload);
-        	console.log(response);
         if (response.status === 200) {
           	this.props.history.push({
           		pathname: `/profile/${payload.name}`, 
@@ -83,7 +97,9 @@ class Challenge extends Component {
 		return(
 			<form onSubmit={this.handleSubmit}>
 			<div>
-			<p>hello, {this.props.location.state.name}</p>
+			<p><i>Hello <b>{this.props.location.state.uname}</b>, pick a challenge from given option 
+			or you can create your own challenge for your friends.</i></p>
+			<div className={styles.Options}>
 			 <div className="form-check">
   				<label className="form-check-label">
     			<input type="radio" className="form-check-input" value="Update your status with the message ‘I’m stupid’."
@@ -98,7 +114,7 @@ class Challenge extends Component {
               		onChange={this.handleChange}/>Cook egg maggie and update on your's status.
   				</label>
 			 </div>
-			 <div className="form-check">
+			 <div className="form-check justify-content-left align-items-left">
   				<label className="form-check-label">
     			<input type="radio" className="form-check-input" value="Update you'r status with your's childhood pics."
               		checked={this.state.option === "Update you'r status with your's childhood pics."}
@@ -111,10 +127,12 @@ class Challenge extends Component {
               		checked={this.state.option === "custom"}
               		onChange={this.handleChange} />Create your own challenge.
   				</label>
-  				<textarea className="form-control" rows="3" value={this.state.custom} 
+			 </div>
+			 <textarea className="form-control comment" rows="3" value={this.state.custom} 
   					onChange={this.customHandleChange} disabled={this.state.isRadioSelected}></textarea>
-			 </div> 
-			     <button type="submit" className="btn btn-success btn-sm">Submit</button>
+  			 <span style={{color: "red", fontSize:12}}>{this.state.errors}</span>
+			 </div>
+			     <button type="submit" className="btn btn-success btn-sm">&nbsp;Create&nbsp;</button>
 			</div>
 			</form>
 		);

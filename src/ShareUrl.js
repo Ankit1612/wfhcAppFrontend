@@ -26,15 +26,15 @@ class ShareUrl extends Component {
   };
 
 	render(){
-		var shareUrl = `https://wfhcreact.herokuapp.com/${this.props.location.state.uniqueCode}`;
-		var title = 'share url';
+		var shareUrl = `https://wfhchallenges.com/${this.props.location.state.uniqueCode}`;
 	return(
 		     <div>
-		     <p>Hey, {this.props.location.state.username} you have successfully created challenge share it with your friends.</p>
+		     <p>Hey <b><i>{this.props.location.state.username}</i></b>, you have successfully created a challenge 
+		     	now share it with your friends.</p>
 		             <form>
           <input type="text"
             ref={(textarea) => this.textArea = textarea}
-            value={'localhost:3000/'+this.props.location.state.uniqueCode}
+            value={shareUrl}
           />
         </form>
         {
@@ -56,7 +56,6 @@ class ShareUrl extends Component {
         	         <br></br>
           <FacebookShareButton
             url={shareUrl}
-            quote={title}
             className="Demo__some-network__share-button"
           >
             <FacebookIcon size={32} round />
@@ -64,8 +63,6 @@ class ShareUrl extends Component {
           &nbsp;
           <WhatsappShareButton
             url={shareUrl}
-            title={title}
-            separator=":: "
             className="Demo__some-network__share-button"
           >
             <WhatsappIcon size={32} round />

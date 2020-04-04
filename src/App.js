@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import Footer from './Footer';
 import Welcome from './Welcome';
 import Challenge from './Challenge';
 import createHistory from "history/createBrowserHistory";
-import { BrowserRouter, Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ShareUrl from './ShareUrl';
 import User from './User';
 import Accept from './Accept';
+import Header from './Header';
 export const history = createHistory();
 
 function App() {
 
     return (
       <BrowserRouter>
+        <div className="Header">
+          <Header />
+        </div>
         <div className="App">
           <Switch>
             <Route exact path={"/"} component={Welcome} />

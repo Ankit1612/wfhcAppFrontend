@@ -1,9 +1,4 @@
-import React, { Component } from 'react';
-import {Redirect} from 'react-router';
-import Challenge from './Challenge';
-import {
-	withRouter
-} from 'react-router-dom';
+import React from 'react';
 
 const hashtag = {
   color: '#1da1f2'
@@ -13,41 +8,69 @@ class Welcome extends React.Component {
 	 constructor(props) {
         super(props);
         this.state = {
-            value: ' '
+           fields: {},
+           errors: {}
         };
-
-        this.handleChange = this.handleChange.bind(this);
-    	this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange = (e) => {
-        this.setState({
-            value: e.target.value
-        });
+    handleChange = (field, e) => {
+         let fields = this.state.fields;
+        fields[field] = e.target.value;        
+        this.setState({fields});
     }
+
+    handleValidation(){
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+
+        //Name
+        if(!fields["name"]){
+           formIsValid = false;
+           errors["name"] = "Please enter name!";
+        }
+
+        if(typeof fields["name"] !== "undefined"){
+           if(!fields["name"].match(/^[a-zA-Z]+$/)){
+              formIsValid = false;
+              errors["name"] = "Please enter valid name!";
+           }        
+        }
+       
+
+       this.setState({errors: errors});
+       return formIsValid;
+   }
 
    handleSubmit = (e) => {
       	e.preventDefault();
-    	this.props.history.push('/challenge', {name: this.state.value});
+
+      	 if(this.handleValidation()){
+    		this.props.history.push('/challenge', {uname: this.state.fields["name"]});
+        }else{
+        }
     }
 
     render(){
 	return (
 		<div>
-			<h3 style={hashtag}>#workfromhomechallenge20</h3>
-			<form onSubmit={this.handleSubmit}>
-  				<label for="usr">Enter your name:</label>
+			<h3 style={hashtag}>#workfromhomechallenge</h3>
+			<form onSubmit={this.handleSubmit.bind(this)}>
+  				<label>Enter your name:</label>
  		 		<input type="text" className="form-control" id="usr"
-                        value={this.state.value}
-                        onChange={this.handleChange}/>
+                        value={this.state.fields["name"]}
+                        onChange={this.handleChange.bind(this, "name")}/>
+                <span style={{color: "red", fontSize:12}}>{this.state.errors["name"]}</span>
                 <br></br>
 				<button type="submit" className="btn btn-primary btn-sm">&nbsp;&nbsp;&nbsp;Enter&nbsp;&nbsp;&nbsp;</button>
 			<br></br>
 			<br></br>
 			<br></br>
-			<div class="container">
+			<div className="container">
 			<p style={hashtag}>
-				#workfromhome #challenge #workfromhomechallenge #timepass #lockdown #qunatine 
+				#workfromhome #challengeaccepted #workfromhomechallenge #timepass #lockdown #quarantine #covid19
+				#gocorona #boreathome #challengeoftheday #daretodo #cooking #washing #laptop #instagram #netflix 
+				#game #tiktok #memes #birthdaybash
 			</p>
 			</div>
 			</form>
