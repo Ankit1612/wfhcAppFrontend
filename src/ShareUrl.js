@@ -26,7 +26,7 @@ class ShareUrl extends Component {
   };
 
 	render(){
-		var shareUrl = `https://wfhchallenge.herokuapp.com//${this.props.location.state.uniqueCode}`;
+		var shareUrl = `https://wfhchallenge.herokuapp.com/${this.props.location.state.uniqueCode}`;
 	return(
 		     <div>
 		     <p>Hey <b><i>{this.props.location.state.username}</i></b>, you have successfully created a challenge 

@@ -104,7 +104,7 @@ class Challenge extends Component {
   				<label className="form-check-label">
     			<input type="radio" className="form-check-input" value="Update your status with the message ‘I’m stupid’."
               		checked={this.state.option === "Update your status with the message ‘I’m stupid’."}
-              		onChange={this.handleChange}/>Update your status with the message ‘I’m stupid’.
+              		onChange={this.handleChange}/>Update your status with the message ‘I’m stupid and all your olds pic and tell status about me also’.
     			</label>
 			 </div>
 			 <div className="form-check">
