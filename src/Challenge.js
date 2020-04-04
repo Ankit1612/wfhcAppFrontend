@@ -95,30 +95,34 @@ class Challenge extends Component {
 
 	render() {
 		return(
+			<div>
 			<form onSubmit={this.handleSubmit}>
 			<div>
 			<div className={styles.Options}>
-			<p><i>Hello <b>{this.props.location.state.uname}</b>, pick a challenge from given option 
-			or you can create your own challenge for your friends.</i></p>
+			<p><i>Hello <b>{this.props.location.state.uname}</b>, as days are getting bore in lockdown, 
+			lets have some fun.Give your friends a dare,and ask them to post it on any social media.Give them 
+			a hilarious task and enjoy seeing them doing funny things.Let's have fun while we #StayHome #StaySafe...
+			Lets not break the chain....</i></p>
+			<p>You can eiher pick a dare from list below, or create you own dare to have real fun.....</p>
 			 <div className="form-check">
   				<label className="form-check-label">
-    			<input type="radio" className="form-check-input" value="Update your status with the message ‘I’m stupid’."
-              		checked={this.state.option === "Update your status with the message ‘I’m stupid’."}
-              		onChange={this.handleChange}/>Update your status with the message ‘I’m stupid and all your olds pic and tell status about me also’.
+    			<input type="radio" className="form-check-input" value="Mimic any of your colleague/friend and post it on your whatsapp story."
+              		checked={this.state.option === "Mimic any of your colleague/friend and post it on your whatsapp story."}
+              		onChange={this.handleChange}/>Mimic any of your colleague/friend and post it on your whatsapp story.
     			</label>
 			 </div>
 			 <div className="form-check">
   				<label className="form-check-label">
-    			<input type="radio" className="form-check-input" value="Cook egg maggie and update on your's status."
-              		checked={this.state.option === "Cook egg maggie and update on your's status."}
-              		onChange={this.handleChange}/>Cook egg maggie and update on your's status.
+    			<input type="radio" className="form-check-input" value="Update your story with a childhood pic."
+              		checked={this.state.option === "Update your story with a childhood pic."}
+              		onChange={this.handleChange}/>Update your story with a childhood pic.
   				</label>
 			 </div>
 			 <div className="form-check justify-content-left align-items-left">
   				<label className="form-check-label">
-    			<input type="radio" className="form-check-input" value="Update you'r status with your's childhood pics."
-              		checked={this.state.option === "Update you'r status with your's childhood pics."}
-              		onChange={this.handleChange} />Update you'r status with your's childhood pics.
+    			<input type="radio" className="form-check-input" value="Post a pic of yours in your saree."
+              		checked={this.state.option === "Post a pic of yours in your saree."}
+              		onChange={this.handleChange} />Post a pic of yours in your saree.
   				</label>
 			 </div> 
 			 <div className="form-check">
@@ -137,6 +141,7 @@ class Challenge extends Component {
 			     <button type="submit" className="btn btn-success btn-sm">&nbsp;Create&nbsp;</button>
 			</div>
 			</form>
+			</div>
 		);
 	}
 }

@@ -29,8 +29,7 @@ class ShareUrl extends Component {
 		var shareUrl = `https://wfhchallenge.herokuapp.com/${this.props.location.state.uniqueCode}`;
 	return(
 		     <div>
-		     <p>Hey <b><i>{this.props.location.state.username}</i></b>, you have successfully created a challenge 
-		     	now share it with your friends.</p>
+		     <p>tadaaa...your challenge has been created,copy the link below and share it with your friends to see the funny responses from your friends....</p>
 		             <form>
           <input type="text"
             ref={(textarea) => this.textArea = textarea}
@@ -38,8 +37,6 @@ class ShareUrl extends Component {
           />
         </form>
         {
-         /* Logical shortcut for only displaying the 
-            button if the copy command exists */
          document.queryCommandSupported('copy') &&
           <div>
           	         <br></br>

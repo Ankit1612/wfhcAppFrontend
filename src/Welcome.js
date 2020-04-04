@@ -69,8 +69,8 @@ class Welcome extends React.Component {
 			<div className="container">
 			<p style={hashtag}>
 				#workfromhome #challengeaccepted #workfromhomechallenge #timepass #lockdown #quarantine #covid19
-				#gocorona #boreathome #challengeoftheday #daretodo #cooking #washing #laptop #instagram #netflix 
-				#game #tiktok #memes #birthdaybash
+				#gocorona #boreathome #challengeoftheday #daretoChallenge #instagram #netflix 
+				#game #tiktok #memes #stayhome #staysafe
 			</p>
 			</div>
 			</form>
