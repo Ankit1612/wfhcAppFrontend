@@ -31,7 +31,7 @@ class Welcome extends React.Component {
         }
 
         if(typeof fields["name"] !== "undefined"){
-           if(!fields["name"].match(/^[a-zA-Z]+$/)){
+           if(!fields["name"].match(/^[a-zA-Z ]+$/)){
               formIsValid = false;
               errors["name"] = "Please enter valid name!";
            }        

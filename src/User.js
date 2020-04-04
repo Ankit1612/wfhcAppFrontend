@@ -62,7 +62,7 @@ class User extends Component {
 	render(){
 		return(
 			<div>
-				<p> Hey <b><i>{this.state.user.name}</i></b>, has given you a challenge - <b><i>"{this.state.user.challenge}"</i></b> Please accept 
+				<p> Hey, <b><i>{this.state.user.name}</i></b> has given you a challenge - <b><i>"{this.state.user.challenge}"</i></b> Please accept 
 					the challenge and display it, at your whatsapp status.</p>
 				<div>
 					<button type="button" class="btn btn-danger btn-sm" onClick={this.onClickHandleDecline}>Decline</button>&nbsp;&nbsp;

@@ -97,9 +97,9 @@ class Challenge extends Component {
 		return(
 			<form onSubmit={this.handleSubmit}>
 			<div>
+			<div className={styles.Options}>
 			<p><i>Hello <b>{this.props.location.state.uname}</b>, pick a challenge from given option 
 			or you can create your own challenge for your friends.</i></p>
-			<div className={styles.Options}>
 			 <div className="form-check">
   				<label className="form-check-label">
     			<input type="radio" className="form-check-input" value="Update your status with the message ‘I’m stupid’."
@@ -128,9 +128,11 @@ class Challenge extends Component {
               		onChange={this.handleChange} />Create your own challenge.
   				</label>
 			 </div>
+			 <div style={{paddingTop:10, paddingBottom:10}}>
 			 <textarea className="form-control comment" rows="3" value={this.state.custom} 
   					onChange={this.customHandleChange} disabled={this.state.isRadioSelected}></textarea>
   			 <span style={{color: "red", fontSize:12}}>{this.state.errors}</span>
+  			 </div>
 			 </div>
 			     <button type="submit" className="btn btn-success btn-sm">&nbsp;Create&nbsp;</button>
 			</div>
