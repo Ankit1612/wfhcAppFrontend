@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
 	return(
 		<div>
-			<footer className="page-footer font-small">
+			<footer className="page-footer font-small fixed-bottom">
   				<div className="footer-copyright text-center py-3"> 
   					Made with <span style={{color: '#e25555'}}>&#9829;</span> by Ankit Shah
   					&copy; {new Date().getFullYear()}
